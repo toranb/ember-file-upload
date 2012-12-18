@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+
+.idea/*
+.ropeproject/*
+
+ember.db
+
+node_modules/*
