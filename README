@@ -15,19 +15,19 @@ On success look for logo.gif and other.gif
 
 **Files of interest for anyone looking at the ember side of this project
 
-ember-file-upload/ember/static/script/app/person.js
+https://github.com/toranb/ember-file-upload/blob/master/ember/static/script/app/person.js
 
 - This file contains the ember views/controllers/models/router
 
-ember-file-upload/ember/person/templates/index.html
+https://github.com/toranb/ember-file-upload/blob/master/ember/person/templates/index.html
 
 - This file contains the handlebars template
 
-ember-file-upload/ember/static/script/vendor/adapter.js
+https://github.com/toranb/ember-file-upload/blob/master/ember/static/script/vendor/adapter.js
 
 - This file contains the ember-data adapter that will fire off the ajax post
 
-ember-file-upload/ember/person/views.py
+https://github.com/toranb/ember-file-upload/blob/master/ember/person/views.py
 
 - This file contains the python http view (look for the class NewPerson)
 
