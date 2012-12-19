@@ -23,6 +23,10 @@ ember-file-upload/ember/person/templates/index.html
 
 - This file contains the handlebars template
 
+ember-file-upload/ember/static/script/vendor/adapter.js
+
+- This file contains the ember-data adapter that will fire off the ajax post
+
 ember-file-upload/ember/person/views.py
 
 - This file contains the python http view (look for the class NewPerson)
