@@ -29,7 +29,7 @@ https://github.com/toranb/ember-file-upload/blob/master/ember/static/script/vend
 
 https://github.com/toranb/ember-file-upload/blob/master/ember/person/views.py
 
-- This file contains the python http view (look for the class NewPerson)
+- This file contains the python view that responses to the http post (look for the class NewPerson)
 
 **issues in the current release
 
@@ -42,3 +42,5 @@ https://github.com/toranb/ember-file-upload/blob/master/ember/person/views.py
 2.) This is a basic proof of concept so it's not working on IE8 but this isn't ember-data but the django-rest-framework adapter I wrote.
 
 - You can modify the adapter file and replace the FormData element with something more IE friendly if needed
+
+3.) This doesn't work with png images for some odd reason
