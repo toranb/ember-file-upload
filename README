@@ -1,1 +1,40 @@
-a simple ember.js / ember-data app to show file uploads (with a django backend)
+ember.js web app showing file uploads in action using ember-data
+
+To run this django application
+
+1. mkvirtualenv ember-file-upload
+1. pip install -r requirements.txt
+2. python manage.py syncdb --noinput
+3. python manage.py runserver
+4. http://localhost:8000/
+5. select 2 gif images and click the save button
+
+The images are base64 decoded on the python/django side and dropped in the root project folder
+
+On success look for logo.gif and other.gif
+
+**Files of interest for anyone looking at the ember side of this project
+
+ember-file-upload/ember/static/script/app/person.js
+
+- This file contains the ember views/controllers/models/router
+
+ember-file-upload/ember/person/templates/index.html
+
+- This file contains the handlebars template
+
+ember-file-upload/ember/person/views.py
+
+- This file contains the python http view (look for the class NewPerson)
+
+**issues in the current release
+
+1.) After a successful file upload you will see a JS error coming from the ember internals
+
+"Uncaught Error: assertion failed: The server must provide a primary key: id"
+
+- This is not an ember issue, my python view is returning html and not json (but the upload does work)
+
+2.) This is a basic proof of concept so it's not working on IE8 but this isn't ember-data but the django-rest-framework adapter I wrote.
+
+- You can modify the adapter file and replace the FormData element with something more IE friendly if needed
