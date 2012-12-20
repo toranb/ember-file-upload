@@ -3,11 +3,11 @@ ember.js web app showing file uploads in action using ember-data
 To run this django application
 
 1. mkvirtualenv ember-file-upload
-1. pip install -r requirements.txt
-2. python manage.py syncdb --noinput
-3. python manage.py runserver
-4. http://localhost:8000/
-5. select 2 gif images and click the save button
+2. pip install -r requirements.txt
+3. python manage.py syncdb --noinput
+4. python manage.py runserver
+5. http://localhost:8000/
+6. select 2 gif images and click the save button
 
 The images are base64 decoded on the python/django side and dropped in the root project folder
 
