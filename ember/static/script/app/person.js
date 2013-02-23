@@ -13,29 +13,14 @@ PersonApp.Person = DS.Model.extend({
   other: DS.attr('string')
 });
 
+DS.DjangoRESTAdapter.configure("plurals", {"person" : "people"});
 PersonApp.Store = DS.Store.extend({
-  revision: 4,
-  adapter: DS.DjangoRESTAdapter.create({
-    bulkCommit: false,
-    plurals: {
-      person: 'people'
-    }
-  })
+  revision: 11,
+  adapter: DS.DjangoRESTAdapter.create()
 });
 
-PersonApp.Router = Ember.Router.create({
-  root: Ember.Route.extend({
-    index: Ember.Route.extend({
-      route: '/',
-      connectOutlets: function(router, context) {
-        router.get('applicationController').connectOutlet('person');
-      },
-      addPerson: function(router, username) {
-        PersonApp.Person.createRecord({ username: username });
-        router.get('store').commit();
-      }
-    })
-  })
+PersonApp.Router.map(function() {
+    this.resource("person", { path: "/" });
 });
 
 PersonApp.PersonController = Ember.ObjectController.extend({
@@ -46,10 +31,9 @@ PersonApp.PersonController = Ember.ObjectController.extend({
 
 PersonApp.PersonView = Ember.View.extend({
   templateName: 'person',
-  submitFileUpload: function(event) {
-    event.preventDefault();
+  submitFileUpload: function() {
     var person = PersonApp.Person.createRecord({ username: 'heyo', attachment: this.get('controller').get('logo'), other: this.get('controller').get('other') });
-    this.get('controller.target').get('store').commit();
+    this.get('controller.store').commit();
   }
 });
 
@@ -69,8 +53,4 @@ PersonApp.UploadFileView = Ember.TextField.extend({
         reader.readAsDataURL(input.files[0]);
       }
     }
-});
-
-$(function () {
-  PersonApp.initialize(PersonApp.Router);
 });
