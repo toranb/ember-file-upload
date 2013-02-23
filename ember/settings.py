@@ -75,7 +75,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djangorestframework',
+    'rest_framework',
     'ember.person',
     'templatetag_handlebars',
 )

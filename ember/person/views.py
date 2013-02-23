@@ -1,6 +1,4 @@
 from django.views.generic import TemplateView
-from djangorestframework import views
-from djangorestframework import mixins
 from ember.person import resources
 from django.views.generic import edit
 from django.views.generic import base
@@ -9,6 +7,8 @@ from django.template import context
 from django import shortcuts
 from django import forms
 from ember.person import models
+from rest_framework import generics
+
 
 class PersonForm(forms.ModelForm):
     username = forms.CharField(max_length=50)
@@ -70,8 +70,10 @@ class NewPerson(edit.BaseCreateView, list.BaseListView, base.TemplateResponseMix
     def get_list_data(self, request, *args, **kwargs):
         return list.BaseListView.get(self, request, *args, **kwargs).context_data['object_list']
 
-class People(views.ListOrCreateModelView, mixins.CreateModelMixin):
-    resource = resources.PersonResource
+class People(generics.ListCreateAPIView):
+    model = models.Person
+    serializer_class = resources.PersonSerializer
 
-class Person(views.InstanceModelView):
-    resource = resources.PersonResource
+class Person(generics.RetrieveUpdateDestroyAPIView):
+    model = models.Person
+    serializer_class = resources.PersonSerializer
