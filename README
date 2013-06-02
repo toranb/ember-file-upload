@@ -7,7 +7,7 @@ To run this django application
 3. python manage.py syncdb --noinput
 4. python manage.py runserver
 5. http://localhost:8000/
-6. select 2 gif images and click the save button
+6. select 2 gif or jpg images and click the save button
 
 The images are base64 decoded on the python/django side and dropped in the root project folder
 
@@ -33,9 +33,9 @@ https://github.com/toranb/ember-file-upload/blob/master/ember/person/views.py
 
 **issues in the current release
 
-1.) After a successful file upload you will see a key error coming from the django web server
+1.) After a successful file upload you will see a javascript error
 
-- This is not an ember issue, my python view is half baked (it does drop a file in the root directory for each image you uploaded)
+- This is not an ember issue, my python view is half baked + my adapter is half baked (it does however drop a file in the root directory for each image you uploaded)
 
 2.) This is a basic proof of concept so it's not working on IE8 but this isn't ember-data but the django-rest-framework adapter I wrote.
 

@@ -7,7 +7,6 @@ PersonApp.ApplicationView = Ember.View.extend({
 });
 
 PersonApp.Person = DS.Model.extend({
-  id: DS.attr('number'),
   username: DS.attr('string'),
   attachment: DS.attr('string'),
   other: DS.attr('string')
@@ -15,7 +14,6 @@ PersonApp.Person = DS.Model.extend({
 
 DS.DjangoRESTAdapter.configure("plurals", {"person" : "people"});
 PersonApp.Store = DS.Store.extend({
-  revision: 12,
   adapter: DS.DjangoRESTAdapter.create()
 });
 
@@ -49,7 +47,7 @@ PersonApp.UploadFileView = Ember.TextField.extend({
         reader.onload = function(e) {
           var fileToUpload = e.srcElement.result;
           self.get('controller').set(self.get('name'), fileToUpload);
-        }
+        };
         reader.readAsDataURL(input.files[0]);
       }
     }
